@@ -4,10 +4,11 @@
 
 int main()
 {
-    /*
+    /* */
     // lab 2
 
     int number_threads_1 = 5;
+    omp_set_num_threads(10);
 
     #pragma omp parallel num_threads(number_threads_1)
     {
@@ -17,10 +18,11 @@ int main()
     printf("\n");
     
     
+    /*
     int number_threads_2; // Quantity threads for lab 3
     printf("Write number of threads for lab 3: ");
     scanf_s("%d", &number_threads_2);
-
+    
     // lab 3_1
     printf("3_1\n");
     #pragma omp parallel num_threads(number_threads_2)
@@ -42,7 +44,8 @@ int main()
             int num_threads = omp_get_num_threads(); // get total number of threads in region
             printf("I am %d thread from %d threads!\n", id, num_threads);
         }
-    }*/
+    }
+    */
 
     /*
     // lab 4
@@ -55,9 +58,32 @@ int main()
     {
         int rank = omp_get_thread_num();
         printf("I am %d thread\n", rank);
-    }*/
+    }
+    */
 
+    /*
+    // lab 5
+    // 5_1
+    int N = 10;
+    int sum = 0;
 
+    #pragma omp parallel num_threads(2) reduction(+:sum)
+    {
+        int rank = omp_get_thread_num();
+        int start = rank * N / 2 + 1;
+        int end = (rank + 1) * N / 2;
+        int local_sum = 0;
+
+        for (int i = start; i <= end; i++) {
+            local_sum += i;
+        }
+
+        sum += local_sum;
+        printf("[%d]: Sum = %d\n", rank, local_sum);
+    }
+
+    printf("Sum = %d\n", sum);
+    */
 
     return 0;
 }
