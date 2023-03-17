@@ -4,10 +4,10 @@
 
 int main()
 {
-    /* */
+    /* 
     // lab 2
 
-    int number_threads_1 = 5;
+    int number_threads_1 = 4;
     omp_set_num_threads(10);
 
     #pragma omp parallel num_threads(number_threads_1)
@@ -16,28 +16,29 @@ int main()
     }
 
     printf("\n");
+    */
     
     
-    /*
-    int number_threads_2; // Quantity threads for lab 3
+    /* */
+    // LAB 3
+    int number_threads_lab3; // Quantity threads for lab 3
     printf("Write number of threads for lab 3: ");
-    scanf_s("%d", &number_threads_2);
+    scanf_s("%d", &number_threads_lab3);
     
     // lab 3_1
     printf("3_1\n");
-    #pragma omp parallel num_threads(number_threads_2)
+    #pragma omp parallel num_threads(number_threads_lab3)
     {
         int id = omp_get_thread_num(); // get num of current thread
         int num_threads = omp_get_num_threads(); // get total number of threads in region
         printf("I am %d thread from %d threads!\n", id, num_threads);
-        //std::cout << "I am " << id << " thread from " << num_threads << " threads!\n";
     }
 
     printf("\n3_2 Print only even threads: \n\n");
     
 
     // lab 3_2
-    #pragma omp parallel num_threads(number_threads_2)
+    #pragma omp parallel num_threads(number_threads_lab3)
     {
         int id = omp_get_thread_num(); // get num of current thread
         if (id % 2 == 0) { 
@@ -45,10 +46,10 @@ int main()
             printf("I am %d thread from %d threads!\n", id, num_threads);
         }
     }
-    */
+    
 
     /*
-    // lab 4
+    // LAB 4
     int number_threads_3;
     printf("Write number of threads for lab 4: ");
     scanf_s("%d", &number_threads_3);
@@ -62,7 +63,7 @@ int main()
     */
 
     /*
-    // lab 5
+    // LAB 5
     // 5_1
     int N = 10;
     int sum = 0;
@@ -88,42 +89,6 @@ int main()
     return 0;
 }
 
-
-
-/* lab1 
-1) Что такое OpenMP?
- Cтандарт для параллельного программирования. Предоставляет набор директив и функций, которые позволяют 
- программисту контролировать работу с общей памятью и оптимизировать производительность параллельной программы.
-
-2) Какие модели он реализует? Опишите модели и их связь.
- > fork-join - модель, в которой основной поток запускает параллельную область, в которой выполняются 
-    несколько нитей. Когда нити заканчивают свою работу, они сливаются обратно в основной поток.
- > Data parallel - модель, в которой данные разделяются между несколькими нитями, и 
-    каждая нить работает с своей частью данных.
-
-3) В каких языках реализован этот стандарт?
- C, C++ и Fortran
- 
-4) Из каких частей состоит реализация в Visual Studio?
- Компилятора и библиотеки OpenMP
-
-*/
-
-/* lab2
-1) Какие существуют варианты задания количества нитей в параллельном регионе?
- Задание числа нитей при помощи директивы num_threads().
- Задание числа нитей при помощи переменной окружения OMP_NUM_THREADS.
- Задание числа нитей при помощи вызова функции omp_set_num_threads() в коде программы.
-
-2) Сколько нитей будет создано, если указаны оба варианта с разными значениями?
- Будет использовано число нитей, указанное в omp_set_num_threads(). Это происходит потому, что 
- явное задание числа нитей при помощи функции omp_set_num_threads() имеет более высокий приоритет, 
- чем установка переменной окружения.
-
-3) Что конкретно делает функция omp_set_num_threads()?
- Используется для установки количества нитей, которые будут использоваться в следующем параллельном регионе
-
-*/
 
 
 /* lab 3
