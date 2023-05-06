@@ -181,10 +181,10 @@ int main()
     
     // LAB 5
     // 5_1
-    int n;
+    int n; // Размер цикла
     std::cin >> n;
 
-    int k;
+    int k; // Кол-во потоков
     std::cin >> k;
 
     int sum = 0;
